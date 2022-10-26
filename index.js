@@ -55,11 +55,11 @@ newspapers.forEach(newspaper => {
 
 
 
-app.get('/news', (req, res) => {
+app.get('/', (req, res) => {
     res.json(articles)
 })
 
-app.get('/news/:newspaperId', (req, res) => {
+app.get('/:newspaperId', (req, res) => {
     const newspaperId = req.params.newspaperId
 
     const newspaperAdress = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].adress
