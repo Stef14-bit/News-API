@@ -6,18 +6,29 @@ const app = express()
 
 const newspapers = [
     {
-        name: 'rbb24',
-        adress: 'https://www.rbb24.de/',
+        name: 'New Scientist',
+        adress: 'https://www.newscientist.com/section/news/',
         base: ''
     },
     {
-        name: 'tagesschau',
-        adress: 'https://www.tagesschau.de/',
+        name: 'America Space',
+        adress: 'https://www.americaspace.com/',
         base: ''
     },
     {
-        name: 'berlinermorgenpost',
-        adress: 'https://www.morgenpost.de/berlin/',
+        name: 'NASA spaceflight',
+        adress: 'https://www.nasaspaceflight.com/',
+        base: ''
+    },
+    {
+        name: 'Space com',
+        adress: 'https://www.space.com/',
+        base: ''
+    },
+
+    {
+        name: 'Nasa watch',
+        adress: 'https://nasawatch.com/space-science-news/',
         base: ''
     },
 ]
@@ -30,7 +41,7 @@ newspapers.forEach(newspaper => {
             const html = response.data
             const $ = cheerio.load(html)
 
-            $('a:contains("Berlin")', html).each(function () {
+            $('a:contains("space")', html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
 
