@@ -3,6 +3,7 @@ const express = require('express')
 const cheerio = require('cheerio')
 const axios = require('axios')
 const app = express()
+const cors = require('cors')
 
 const newspapers = [
     {
@@ -10,6 +11,7 @@ const newspapers = [
         adress: 'https://www.newscientist.com/section/news/',
         base: ''
     },
+
     {
         name: 'America Space',
         adress: 'https://www.americaspace.com/',
@@ -20,11 +22,11 @@ const newspapers = [
         adress: 'https://www.nasaspaceflight.com/',
         base: ''
     },
-    {
-        name: 'Space com',
-        adress: 'https://www.space.com/',
-        base: ''
-    },
+    // {
+    //     name: 'Space com',
+    //     adress: 'https://www.space.com/',
+    //     base: ''
+    // },
 
     {
         name: 'Nasa watch',
@@ -54,6 +56,10 @@ newspapers.forEach(newspaper => {
 });
 
 
+
+app.use(cors({
+    origin: '*'
+}));
 
 app.get('/', (req, res) => {
     res.json(articles)
