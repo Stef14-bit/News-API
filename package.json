@@ -4,6 +4,7 @@
   "description": "scraper api for school project",
   "main": "index.js",
   "scripts": {
+    "run":"node index.js",
     "start": "nodemon index.js"
   },
   "author": "stefan",
